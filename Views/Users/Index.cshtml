@@ -1,0 +1,37 @@
+@model IEnumerable<MvcMovie.Models.User>
+@{
+    ViewData["Title"] = "Users";
+}
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+     <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.phone)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
